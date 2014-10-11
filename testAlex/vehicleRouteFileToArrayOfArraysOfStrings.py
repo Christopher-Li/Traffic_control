@@ -1,7 +1,7 @@
-def vehicleRouteFileToArrayOfArraysOfStrings(vehicleRouteFileName):
-	vehicleRouteData = open(vehicleRouteFileName,'r')
-	vehicleRouteDataArray = []
-	for line in vehicleRouteData:
-		vehicleRouteDataArray.append(line.split())
-	vehicleRouteData.close()
-	return vehicleRouteDataArray
+def fileToArray(fileName):
+	fileData = open(fileName,'r')
+	fileDataArray = []
+	for line in fileData:
+		fileDataArray.append(line.split())
+	fileData.close()
+	return fileDataArray

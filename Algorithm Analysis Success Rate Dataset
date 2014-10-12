@@ -1,0 +1,37 @@
+Algorithm Analysis Success Rate Dataset
+
+<!-- TOTAL TRAVEL TIME -->
+
+smart
+dense 757.0
+medium 761.2
+sparse 735.9
+
+dumb
+dense 938
+medium 993.4
+sparse 994
+
+<!-- TOTAL WAIT TIME -->
+
+smart
+dense 57.0
+medium 61.2
+sparse 35.9
+
+dumb
+dense 238
+medium 293.4
+sparse 294
+
+<!-- NUMBER OF STOPS -->
+
+smart
+dense 40
+medium 37
+sparse 27
+
+dumb
+dense 44
+medium 51
+sparse 51

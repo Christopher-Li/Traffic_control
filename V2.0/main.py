@@ -57,6 +57,7 @@ class test:
 				if toggleLight:
 					lightIsNS = not lightIsNS
 					stringToWrite = "%r 0" % (self.time)
+					print "hi"
 					output.write(str(stringToWrite) + "\n")
 					toggleLight = False
 
@@ -66,7 +67,6 @@ class test:
 			if lightIsNS:
 				while not self.intersections[0].nsCarLL.isEmpty() and self.intersections[0].nsCarLL.head.timeCrossSensor <= self.time - 3:
 					self.intersections[0].nsCarLL.removeHead()
-					print "in loop"
 			else:
 				while not self.intersections[0].ewCarLL.isEmpty() and self.intersections[0].ewCarLL.head.timeCrossSensor <= self.time - 3:
 					self.intersections[0].ewCarLL.removeHead()

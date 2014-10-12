@@ -48,7 +48,7 @@ class CarLinkedList:
 		return count
 	
 	def removeHead(self):
-		head = head.next
+		self.head = self.head.next
 	
 	def getElement(self,indexNumber):
 		temp = self.head

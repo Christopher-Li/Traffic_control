@@ -3,12 +3,13 @@ import random
 class routeGenerator:
 	def __init__(self):
 		self.time = 0
-	def generate(self,i):
+	def generate(self,total):
 		file_full_name = raw_input("Give output file unique file name: ")
-		f = open('file_full_name','w')
-		for i in (1,i):
+		f = open(file_full_name,'w')
+		for i in range(1,total):
 			self.time += [0,1,1.5][random.randint(0,2)]
 			self.stringToWrite = str(self.time) + ' ' + route().routeData + '\n'
+			print(self.stringToWrite)
 			f.write(str(self.stringToWrite))
 		f.close()
 

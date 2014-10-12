@@ -1,16 +1,12 @@
-import web
+from flask import Flask
+from flask import render_template
 
-render = web.template.render('templates/')
+app = Flask(__name__)
+app.debug = True
+app.config['PROPGATE_EXCEPTIONS'] = True
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-urls = (
-    '/', 'index'
-)
-
-class index:
-    def GET(self):
-        name = 'Bob'
-        return render.index()
-
-if __name__ == "__main__":
-    app = web.application(urls, globals())
+if __name__ == '__main__':
     app.run()

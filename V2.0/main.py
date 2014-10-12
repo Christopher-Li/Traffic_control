@@ -23,7 +23,7 @@ class test:
 		# Keep iterating until the vehicleRouteArray is empty
 		while self.vehicleRouteArray or not self.intersections[0].nsCarLL.isEmpty() or not self.intersections[0].ewCarLL.isEmpty():
 			while self.vehicleRouteArray and self.vehicleRouteArray[0][0] == str(self.time): # run if the next car's entrance point is equal to 
-				if self.vehicleRouteArray[0][1].startswith("B0") or self.vehicleRouteArray[0][1].startswith("D0"): 
+				if self.vehicleRouteArray[0][1].startswith("A") or self.vehicleRouteArray[0][1].startswith("C"): 
 					self.vehicleRouteArray[0][1] = self.vehicleRouteArray[0][1][2:] # remove "B0" or "D0"
 					#append car to NS
 					self.intersections[0].nsCarLL.append(mainclasses.Car(self.vehicleRouteArray[0][1],float(self.vehicleRouteArray[0][0])))
@@ -63,7 +63,9 @@ class test:
 						output.write(str(stringToWrite) + "\n")
 
 			print self.time
-			print self.intersections[0].ewCarLL.isEmpty()
+			print "nsCarLL" , self.intersections[0].nsCarLL.size()
+			print "ewCarLL" , self.intersections[0].ewCarLL.size()
+			print self.vehicleRouteArray
 			# remove elements
 			if lightIsNS:
 				while not self.intersections[0].nsCarLL.isEmpty() and self.intersections[0].nsCarLL.head.timeCrossSensor <= self.time - 3:

@@ -3,11 +3,11 @@ import random
 class routeGenerator:
 	def __init__(self):
 		self.time = 0
-	def generate(self,total):
+	def generate(self,total,spread):
 		file_full_name = raw_input("Give output file unique file name: ")
 		f = open(file_full_name,'w')
 		for i in range(1,total):
-			self.time += [0,1,1.5][random.randint(0,2)]
+			self.time += random.randint(0,2) * spread
 			self.stringToWrite = str(self.time) + ' ' + route().routeData + '\n'
 			print(self.stringToWrite)
 			f.write(str(self.stringToWrite))
@@ -80,4 +80,6 @@ startingPointArray[3][1] = startingPoint(intersectionArray[3])
 startingPointArray[3][2] = startingPoint(intersectionArray[6])
 
 r = routeGenerator()
-r.generate(100)
+r.generate(100,0.3)
+r.generate(100,0.5)
+r.generate(100,1)

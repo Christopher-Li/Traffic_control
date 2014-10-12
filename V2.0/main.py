@@ -17,7 +17,7 @@ output = open(output_file_full_name,'w')
 
 #vehicleRouteArray = fileToArray(file_full_name)
 
-class test(vehicleRouteArray):
+class test:
 	def __init__(self, vehicleRouteArray):
 		self.vehicleRouteArray = vehicleRouteArray
 		self.time = 0.0 # initialize time at 0

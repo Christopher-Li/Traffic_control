@@ -1,4 +1,4 @@
-def vehicleRouteFileToArrayOfArraysOfStrings(vehicleRouteFileName):
+def fileToArray(vehicleRouteFileName):
 	vehicleRouteData = open(vehicleRouteFileName,'r')
 	vehicleRouteDataArray = []
 	for line in vehicleRouteData:

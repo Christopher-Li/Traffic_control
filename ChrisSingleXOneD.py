@@ -39,38 +39,72 @@ class linkedListCarNode(object, time, entry, route):
 class Car(object, time, entry, route):
 	def __init__(self, time):
 		self.reachIntersection = 3
-		self.intersection = 1
 		self.entry = entry
 		self.route = route
-	def changeIntersection(self):
-		self.timeLeftIntersection = 0
+
 
 
 
 # create an array of arrays of vehicle information
 file_full_name = raw_input("Where are the car routes!?")
+output_file_full_name = raw_input("Output file?")
+output = open(output_file_full_name,'w')
 
 vehicleRouteArray = fileToArray(file_full_name)
 
 # initialize time
 time = 0.0
 head = None
+light = True # True is NS, False is EW
+toggleLight = False # determines whether the light should be changed
 while vehicleRouteArray != []:
+	# reset score variables
+	NSScore = 0
+	EWScore = 0
+
 	# initialize all cars
 	Car_initializing(vehicleRouteArray, time)
 
-	if head == None:
-		time += 0.1
+	# Determining the direction of light
+	if #not conflict(): not |a - b| <= 1
+		# determine direction of 
+		if point.carsum(point.car.entry == ["A0","C0"]) != light:
+			toggleLight = True
+		else:
+			toggleLight = False
 	else:
 		point = head
-		while point.next != None:
-			if #conflict():
-				
-			
+		while point != None:
+			if point.carsum(point.car.entry == ["A0","C0"]):
+				NSScore += min(1 / point.reachIntersection, 10)
+			else:
+				EWScore += min(1 / point.reachIntersection, 10)
+		# based on the scores and current street light, decide on the future light
+		if (NSScore > EWScore) != light:
+			toggleLight = True
 
-	for # cars in linkedlist
-		# increment formula for determining importance of direction
-	# based on formula, decide whether to change lights
-	# increment timeLeftIntersection if the car is traveling through the intersection
-	# increment wait time if car is waiting
-	# if timeLeftIntersection = 1 the delete the car
+	# determine whether or not to toggle base on lights and write
+	if toggleLight:
+		light = not light
+		stringToWrite = "%r 1\n" % (time)
+		output.write(stringToWrite)
+		toggleLight = False
+
+	# increment timer
+	time += 0.1
+
+	#increment distance
+	point = head
+	before = point
+	while point != None:
+		if point.car.reachIntersection != 0:
+			point.car.reachIntersection -= 0.1
+		else:
+			if sum(point.car.entry == ["A0","C0"]) == light: # car is at intersection and light is green
+				if head = point:
+					head = point.next
+				else:
+					before.next = point.next
+		# increment pointers
+		before = point
+		point = point.next

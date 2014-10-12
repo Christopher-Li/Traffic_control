@@ -50,3 +50,18 @@ class CarLinkedList:
 		for i in range(0,self.size()):
 			score += float(1)/(self.getElement(i).getTimeCrossSensor() + 1)
 		return score
+
+class Intersection:
+	def __init__(self):
+		self.nsCarLL = CarLinkedList()
+		self.ewCarLL = CarLinkedList()
+		self.lightIsNS = True
+	def toggleLight(self):
+		self.lightIsNS = not(self.lightIsNS)
+	def push(self,carInstance,ns):
+		if(ns):
+			self.nsCarLL.append(carInstance)
+		else:
+			self.ewCarLL.append(carInstance)
+	def scoreComp(self):
+		return self.nsCarLL.getScore()>=self.ewCarLL

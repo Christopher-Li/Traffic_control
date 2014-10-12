@@ -18,10 +18,10 @@ class test:
 		# initialize variables
 
 		lightIsNS = True
-		toggleLight = False
+		toggleLight = 0
 		
 		# Keep iterating until the vehicleRouteArray is empty
-		while self.vehicleRouteArray or not (self.intersections[0].nsCarLL.isEmpty() or self.intersections[0].ewCarLL.isEmpty()):
+		while self.vehicleRouteArray or not self.intersections[0].nsCarLL.isEmpty() or not self.intersections[0].ewCarLL.isEmpty():
 			while self.vehicleRouteArray and self.vehicleRouteArray[0][0] == str(self.time): # run if the next car's entrance point is equal to 
 				if self.vehicleRouteArray[0][1].startswith("B0") or self.vehicleRouteArray[0][1].startswith("D0"): 
 					self.vehicleRouteArray[0][1] = self.vehicleRouteArray[0][1][2:] # remove "B0" or "D0"
@@ -33,32 +33,34 @@ class test:
 					self.intersections[0].ewCarLL.append(mainclasses.Car(self.vehicleRouteArray[0][1],float(self.vehicleRouteArray[0][0])))
 				
 				self.vehicleRouteArray = self.vehicleRouteArray[1:]
-				
-			# decide whether the program should iterate and check scores or not
-			# complications are for if either linkedlist is empty
-			if self.intersections[0].nsCarLL.isEmpty():
-				if self.intersections[0].ewCarLL.isEmpty():
-					iterate = False
-				else:
-					iterate = (self.time + 2) >= self.intersections[0].ewCarLL.head.timeCrossSensor
+			
+			if toggleLight > 0:
+				toggleLight -= 1
 			else:
-				if self.intersections[0].ewCarLL.isEmpty():
-					iterate = (self.time + 2) >= self.intersections[0].nsCarLL.head.timeCrossSensor
+				# decide whether the program should iterate and check scores or not
+				# complications are for if either linkedlist is empty
+				if self.intersections[0].nsCarLL.isEmpty():
+					if self.intersections[0].ewCarLL.isEmpty():
+						iterate = False
+					else:
+						iterate = (self.time + 2) >= self.intersections[0].ewCarLL.head.timeCrossSensor
 				else:
-					iterate = ((self.time + 2) >= self.intersections[0].nsCarLL.head.timeCrossSensor) or ((self.time + 2) >= self.intersections[0].ewCarLL.head.timeCrossSensor)
+					if self.intersections[0].ewCarLL.isEmpty():
+						iterate = (self.time + 2) >= self.intersections[0].nsCarLL.head.timeCrossSensor
+					else:
+						iterate = ((self.time + 2) >= self.intersections[0].nsCarLL.head.timeCrossSensor) or ((self.time + 2) >= self.intersections[0].ewCarLL.head.timeCrossSensor)
 
-			# if (self.time + 2) >= nsCarLL.timeCrossSensor and 
-			# (self.time + 2) >= ewCarLL.timeCrossSensor:
+				# if (self.time + 2) >= nsCarLL.timeCrossSensor and 
+				# (self.time + 2) >= ewCarLL.timeCrossSensor:
 
-			if iterate:
-				if (self.intersections[0].nsCarLL.getScore() > self.intersections[0].ewCarLL.getScore()) != lightIsNS:
-					toggleLight = True
+				if iterate:
+					if (self.intersections[0].nsCarLL.getScore() > self.intersections[0].ewCarLL.getScore()) != lightIsNS:
+						toggleLight = 10
 
-				if toggleLight:
-					lightIsNS = not lightIsNS
-					stringToWrite = "%r 0" % (round(self.time,1))
-					output.write(str(stringToWrite) + "\n")
-					toggleLight = False
+					if toggleLight == 10:
+						lightIsNS = not lightIsNS
+						stringToWrite = "%r 0" % (round(self.time,1))
+						output.write(str(stringToWrite) + "\n")
 
 			print self.time
 			print self.intersections[0].ewCarLL.isEmpty()

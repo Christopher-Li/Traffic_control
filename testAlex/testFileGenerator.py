@@ -79,3 +79,5 @@ startingPointArray[3][0] = startingPoint(intersectionArray[0])
 startingPointArray[3][1] = startingPoint(intersectionArray[3])
 startingPointArray[3][2] = startingPoint(intersectionArray[6])
 
+r = routeGenerator()
+r.generate(100)

@@ -24,7 +24,7 @@ def calcSingleXOneWayTotalTime(vehicleRouteFileName,trafficLightFileName):
 			if ((vehicleRouteArray[i][1][0]=='B' or vehicleRouteArray[i][1][0]=='D') != (not isNS)):
 				totalTime += float(trafficLightArray[j][0]) - float(vehicleRouteArray[i][0]) - 2
 				numStops += 1
-			if (float(vehicleRouteArray[i][0]) - float(trafficLightArray[j][0]) <1):
+			elif (float(vehicleRouteArray[i][0]) - float(trafficLightArray[j][0]) <1):
 				totalTime += 1 + float(trafficLightArray[j][0]) - float(vehicleRouteArray[i][0])
 				numStops += 1
 		totalTime += 7

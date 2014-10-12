@@ -1,1 +1,43 @@
-Hello
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Flask-SocketIO Test</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            //connect to the socket server.
+            var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+            var numbers_received = [];
+            function right() {
+                $('img').animate(
+                        {left:"+=100"},
+                        {
+                            duration:2000,
+                            easing:"linear",
+                            step: function() {
+                                var pos = $('img').position();
+                                var dataPos = {
+                                    yAxis:pos.top,
+                                    xAxis:pos.left
+                                };
+                                socket.emit('my event', {data: dataPos});
+                                return false;
+                            },
+                            complete:right
+
+                        });
+            }
+            $('button').click(function(){
+                console.log("hit");
+                right();
+            });
+        });
+    </script>
+</head>
+<body>
+<div><button>click me</button></div>
+<img style="position:absolute" src="{{ url_for('static', filename='car.jpg')}}">
+<div id="log"></div>
+</body>
+</html>

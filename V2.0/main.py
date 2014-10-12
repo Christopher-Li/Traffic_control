@@ -21,7 +21,7 @@ class test:
 		toggleLight = False
 		
 		# Keep iterating until the vehicleRouteArray is empty
-		while (self.vehicleRouteArray != []):
+		while self.vehicleRouteArray or self.intersections[0].nsCarLL.isEmpty() or self.intersections[0].ewCarLL.isEmpty():
 			while self.vehicleRouteArray and self.vehicleRouteArray[0][0] == str(self.time): # run if the next car's entrance point is equal to 
 				if self.vehicleRouteArray[0][1].startswith("B0") or self.vehicleRouteArray[0][1].startswith("D0"): 
 					self.vehicleRouteArray[0][1] = self.vehicleRouteArray[0][1][2:] # remove "B0" or "D0"
@@ -57,7 +57,7 @@ class test:
 				if toggleLight:
 					lightIsNS = not lightIsNS
 					stringToWrite = "%r 0" % (self.time)
-					print "hi"
+					print self.time
 					output.write(str(stringToWrite) + "\n")
 					toggleLight = False
 

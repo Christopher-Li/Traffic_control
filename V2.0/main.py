@@ -9,7 +9,7 @@
 
 
 
-#import a bunch of crap
+import classCarCarLinkedList
 
 file_full_name = raw_input("Where are the car routes!?")
 output_file_full_name = raw_input("Output file?")
@@ -23,6 +23,9 @@ class test:
 		self.time = 0.0 # initialize time at 0
 
 	def run(self):
+		# initialize variables
+lightIsNS = True
+
 		# Keep iterating until the vehicleRouteArray is empty
 		while (self.vehicleRouteArray):
 			while self.vehicleRouteArray[0][0] == self.time: # run if the next car's entrance point is equal to 
@@ -37,29 +40,16 @@ class test:
 				#self.vehicleRouteArray.pop[0]
 
 			#initialize variables
-			# NSScore = 0
-			# EWScore = 0
-			# toggleLight =
+			# toggleLight = False
 
-			# if (self.time + 2) >= NScarLL.timeCrossSensor and 
-			# (self.time + 2) >= EWcarLL.timeCrossSensor:
-				# iterate through NScarLL
-				point = NScarLL.head
-				# while point != None:
-					#NSScore += 1 / ((self.time + 4) - point.timeCrossSensor
-					point = point.next
-
-				# iterate through EWcarLL
-				point = EWcarLL.head
-				# while point != None:
-					#EWScore += 1 / ((self.time + 4) - point.timeCrossSensor
-					point = point.next
-
-				if (NSScore > EWScore) != light:
+			# if (self.time + 2) >= nsCarLL.timeCrossSensor and 
+			# (self.time + 2) >= ewCarLL.timeCrossSensor:
+				if (nsCarLL.getScore() > ewCarLL.getScore()) != lightIsNS:
 					toggleLight = True
 
+
 				if toggleLight:
-					light = not light
+					lightIsNS = not lightIsNS
 					stringToWrite = "%r 1\n" % (self.time)
 					output.write(stringToWrite)
 					toggleLight = False

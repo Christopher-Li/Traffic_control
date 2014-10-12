@@ -11,4 +11,6 @@ Traffic_control
     * OSX/Windows: sudo pip install Flask
 
 3. Access page
-    * Point your browser to http://127.0.0.1:5000/
+    * Point your terminal to the directory where app.py is located
+    * run "python app.py"
+    * Visit http://127.0.0.1:5000/

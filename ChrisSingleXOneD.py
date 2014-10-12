@@ -19,12 +19,21 @@ def Car_initializing(vehicleRouteArray, time):
 					temp = temp.next
 				global temp
 				temp.next = linkedListCarNode(vehicles[0], vehicles[1], vehicles[2])
-			#initialize the car
+
+# determining if any cars will hits based on direction and time from intersection
+def conflict(head):
+	if head = None or head.next = None:
+		return 0
+	else:
+		first = head
+		while first.car.intersection != 1:
+			first = first.next
+
 
 class linkedListCarNode(object, time, entry, route):
 	def __init__(self):
 		self.next = None
-		self.value = Car(time, entry, route)
+		self.car = Car(time, entry, route)
 
 # car class
 class Car(object, time, entry, route):
@@ -32,8 +41,10 @@ class Car(object, time, entry, route):
 		self.reachIntersection = 3
 		self.intersection = 1
 		self.entry = entry
+		self.route = route
 	def changeIntersection(self):
 		self.timeLeftIntersection = 0
+
 
 
 # create an array of arrays of vehicle information
@@ -47,6 +58,16 @@ head = None
 while vehicleRouteArray != []:
 	# initialize all cars
 	Car_initializing(vehicleRouteArray, time)
+
+	if head == None:
+		time += 0.1
+	else:
+		point = head
+		while point.next != None:
+			if #conflict():
+				
+			
+
 	for # cars in linkedlist
 		# increment formula for determining importance of direction
 	# based on formula, decide whether to change lights

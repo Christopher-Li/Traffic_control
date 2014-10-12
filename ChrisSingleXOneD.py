@@ -51,8 +51,8 @@ output_file_full_name = raw_input("Output file?")
 output = open(output_file_full_name,'w')
 
 vehicleRouteArray = fileToArray(file_full_name)
-
-# initialize time
+initialize
+#  time
 time = 0.0
 head = None
 light = True # True is NS, False is EW

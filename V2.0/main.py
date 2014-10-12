@@ -28,10 +28,10 @@ class test:
 			while self.vehicleRouteArray[0][0] == self.time: # run if the next car's entrance point is equal to 
 				if self.vehicleRouteArray[0][1].startswith("B0") or
 				self.vehicleRouteArray[0][1].startswith("D0"): 
-					self.vehicleRouteArray[0][1] = self.vehicleRouteArray[2:] # remove "B0" or "D0"
+					self.vehicleRouteArray[0][1] = self.vehicleRouteArray[0][1][2:] # remove "B0" or "D0"
 					#append car to NS
 				else:
-					self.vehicleRouteArray[0][1] = self.vehicleRouteArray[2:] # remove "A0" or "C0"
+					self.vehicleRouteArray[0][1] = self.vehicleRouteArray[0][1][2:] # remove "A0" or "C0"
 					#append car to EW
 
 				#self.vehicleRouteArray.pop[0]

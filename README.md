@@ -7,5 +7,5 @@ Traffic_control
     * OSX: sudo easy_install pip
     * Windows: https://pip.pypa.io/en/latest/installing.html
 
-2. Install Flask
-    * OSX/Windows: sudo pip install flask
+2. Install Webpy
+    * OSX/Windows: sudo pip install web.py

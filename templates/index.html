@@ -1,20 +1,17 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<html ng-app="leasestarApp" ng-controller="BaseController">
 <head>
-    <meta charset="utf-8">
-
     <title>Traffic Control</title>
-    <meta name="description" content="Traffic Control">
-    <meta name="author" content="hackathon">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width; initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
 </head>
-
 <body>
-    <h1>A traffic routing system using Cisco DMO</h1>
+{{test}}
+<!-- main view -->
+<div class="main-content" ng-view></div>
+<!-- footer include -->
+
+<!-- scripts -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.js"></script>
+
 </body>
 </html>

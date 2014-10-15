@@ -62,10 +62,6 @@ class test:
 						stringToWrite = "%r 0" % (round(self.time,1))
 						output.write(str(stringToWrite) + "\n")
 
-			print self.time
-			print "nsCarLL" , self.intersections[0].nsCarLL.size()
-			print "ewCarLL" , self.intersections[0].ewCarLL.size()
-			print self.vehicleRouteArray
 			# remove elements
 			if lightIsNS:
 				while not self.intersections[0].nsCarLL.isEmpty() and self.intersections[0].nsCarLL.head.timeCrossSensor <= self.time - 3:

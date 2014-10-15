@@ -80,3 +80,9 @@ class Intersection:
 	
 	def scoreComp(self):
 		return self.nsCarLL.getScore()>=self.ewCarLL
+
+	def determineLightisNS(self):
+		if self.nsCarLL.getScore() > self.ewCarLL.getScore()
+			return True
+		else:
+			return False

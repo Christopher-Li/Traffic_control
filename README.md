@@ -1,5 +1,7 @@
 Traffic_control
 
+## Created at a hackathon on October 11th - 12th, 2014
+
 ## Project Setup (Python 2.7.x)
 
 1. Install Pip:
